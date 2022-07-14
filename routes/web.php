@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController;
+use App\Http\Controllers\PlayersController;
 
 
 /*
@@ -19,4 +20,6 @@ use App\Http\Controllers\APIController;
 //     return view('welcome');
 // });
 
-Route::get('/', [APIController::class, 'apiRequest']);
+// Route::get('/', [APIController::class, 'apiRequest']);
+
+Route::get('/', [PlayersController::class, 'fetch']);
