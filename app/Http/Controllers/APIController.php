@@ -13,7 +13,7 @@ class APIController extends Controller
       
         $decoded = json_decode($response->body());
         $players = $decoded->elements;
-        // dd($players[330]);
+        dd($players[330]);
         // $data = $decoded->teams;
 
         foreach ($players as $player) {
