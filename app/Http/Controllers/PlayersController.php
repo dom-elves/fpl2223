@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Players;
+use App\Models\Teams;
 use Illuminate\Support\Facades\DB;
+use App\Models\PlayerPopularity;
+use App\Models\PlayersPointHistory;
 class PlayersController extends Controller
 {
     public function fetch() //this will need to be run once a week 
@@ -16,9 +19,16 @@ class PlayersController extends Controller
         //'elements' is what the API calls players. Check '$decoded' for things like gameweeks etc
         $players = $decoded->elements;
         
+        // $gameweeks = $decoded->events;
+
+
         foreach ($players as $player) {
             
             $new_player = new Players;
+
+            //come back and do these two when the gameweeks have actually started so the logic can work properly
+            $player_weekly_pop = new PlayerPopularity;
+            $player_weeky_points = new PlayersPointHistory;
             
             //general info
             $new_player->player_id = $player->id;
@@ -79,8 +89,12 @@ class PlayersController extends Controller
             $new_player->transfers_in_week = $player->transfers_in_event;
             $new_player->transfers_out_week = $player->transfers_out_event;
         
-            $new_player->save();
+
+
+            $new_player->save();  
+            $team[] = Players::first()->getPlayerTeams;
             
         }
+        return $team;
     }
 }

@@ -10,9 +10,9 @@ class Players extends Model
 {
     use HasFactory;
 
-    public function team()
-    {
-        $this->hasOne(Teams::class);
+    public function getPlayerTeam()
+    {   
+        return $this->hasOne(Teams::class, 'id');
     }
 
     
