@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('teams')->truncate();
+        // DB::table('teams')->truncate();
 
         Teams::create([
             'team_name' => 'Arsenal'
-        ])->save();
+        ]);
 
         Teams::create([
             'team_name' => 'Aston Villa'

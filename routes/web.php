@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\PlayersController;
+use App\Models\Teams;
 
 
 /*
@@ -22,4 +23,7 @@ use App\Http\Controllers\PlayersController;
 
 // Route::get('/', [APIController::class, 'apiRequest']);
 
-Route::get('/', [PlayersController::class, 'fetch']);
+Route::get('/', [PlayersController::class, 'update']);
+
+Route::get('/home', [PlayersController::class, 'fetch']);
+

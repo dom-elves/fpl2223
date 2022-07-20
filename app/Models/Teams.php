@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Playuers;
+use App\Models\Players;
 
 class Teams extends Model
 {
@@ -12,8 +12,8 @@ class Teams extends Model
 
     protected $fillable = [];
 
-    public function getPlayers()
+    public function players()
     {
-        return $this->hasMany(Players::class, 'team');
+        return $this->hasMany(Players::class);
     }
 }

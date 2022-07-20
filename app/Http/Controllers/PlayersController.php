@@ -11,7 +11,7 @@ use App\Models\PlayerPopularity;
 use App\Models\PlayersPointHistory;
 class PlayersController extends Controller
 {
-    public function fetch() //this will need to be run once a week 
+    public function update() //this will need to be run once a week 
     {   //initial request
         $response = Http::get('https://fantasy.premierleague.com/api/bootstrap-static/');
         //make it readable
@@ -20,7 +20,7 @@ class PlayersController extends Controller
         $players = $decoded->elements;
         
         // $gameweeks = $decoded->events;
-
+        DB::table('players')->truncate();
 
         foreach ($players as $player) {
             
@@ -29,12 +29,14 @@ class PlayersController extends Controller
             //come back and do these two when the gameweeks have actually started so the logic can work properly
             $player_weekly_pop = new PlayerPopularity;
             $player_weeky_points = new PlayersPointHistory;
-            
+
+            // dd($player);
             //general info
             $new_player->player_id = $player->id;
             $new_player->first_name = $player->first_name;
+            $new_player->second_name = $player->second_name;
             $new_player->web_name = $player->web_name;
-            $new_player->team = $player->team;
+            $new_player->team_id = $player->team;
             $new_player->current_popularity = $player->selected_by_percent;
 
             //changing element types to strings for future use
@@ -92,9 +94,19 @@ class PlayersController extends Controller
 
 
             $new_player->save();  
-            $team[] = Players::first()->getPlayerTeams;
+            // $team[] = Players::first()->getPlayerTeams;
             
         }
-        return $team;
+        // return $team;
+    }
+
+    public function fetch()
+    {
+      $players = Players::with('team')->get();
+      // foreach ($players as $player) {
+      //   dd($player);
+      // }
+      
+      return view('home')->with(['players' => $players]);
     }
 }

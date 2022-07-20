@@ -9,10 +9,11 @@ use App\Models\Teams;
 class Players extends Model
 {
     use HasFactory;
+    
 
-    public function getPlayerTeam()
+    public function team()
     {   
-        return $this->hasOne(Teams::class, 'id');
+        return $this->hasOne(Teams::class, 'id', 'team_id');
     }
 
     

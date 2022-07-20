@@ -17,9 +17,12 @@ return new class extends Migration
             $table->id();
             $table->integer('player_id');
             $table->string('first_name');
+            $table->string('second_name');
             $table->string('web_name');
             $table->decimal('current_popularity', 4, 2)->nullable();
-            $table->integer('team');
+            $table->foreignId('team_id'); //foreignId for is table relationship
+            // $table->unsignedBigInteger('team_id');
+            // $table->foreign('team_id')->references('id')->on('teams'); //this isn't an actual column, it's for table relationships
             $table->string('position');
             $table->integer('total_points_season')->nullable();
             $table->integer('total_points_week')->nullable();
