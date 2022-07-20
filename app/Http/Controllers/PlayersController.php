@@ -102,11 +102,15 @@ class PlayersController extends Controller
 
     public function fetch()
     {
-      $players = Players::with('team')->get();
+      // $players = Players::with('team')->get();
       // foreach ($players as $player) {
       //   dd($player);
       // }
       
-      return view('home')->with(['players' => $players]);
+      // return view('home')->with(['players' => $players]);
+
+      $teams = Teams::with('players')->get();
+        
+      return view('home')->with(['teams' => $teams ]);
     }
 }
