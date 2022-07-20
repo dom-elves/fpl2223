@@ -3,7 +3,7 @@
 @section('content')
     @foreach ($teams as $team)
 
-        <p>{{ $team->team_name }}</p>
+        <p class="text-3xl">{{ $team->team_name }}</p>
 
         @foreach ($team->players as $player)
 
