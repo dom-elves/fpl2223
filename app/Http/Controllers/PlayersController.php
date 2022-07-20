@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use App\Models\Players;
-use App\Models\Teams;
+use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Support\Facades\DB;
 use App\Models\PlayerPopularity;
 use App\Models\PlayersPointHistory;
@@ -24,7 +24,7 @@ class PlayersController extends Controller
 
         foreach ($players as $player) {
             
-            $new_player = new Players;
+            $new_player = new Player;
 
             //come back and do these two when the gameweeks have actually started so the logic can work properly
             $player_weekly_pop = new PlayerPopularity;
@@ -109,7 +109,8 @@ class PlayersController extends Controller
       
       // return view('home')->with(['players' => $players]);
 
-      $teams = Teams::with('players')->get();
+      //fetches every teams model (as a collection) with their "player" - see players.php
+      $teams = Team::with('players')->get();
         
       return view('home')->with(['teams' => $teams ]);
     }

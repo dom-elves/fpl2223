@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Teams;
+use App\Models\Team;
 
-class Players extends Model
+class Player extends Model
 {
     use HasFactory;
     
 
     public function team()
     {   
-        return $this->hasOne(Teams::class, 'id', 'team_id');
+        return $this->hasOne(Team::class, 'id', 'team_id');
     }
 
     
