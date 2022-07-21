@@ -131,4 +131,24 @@ class PlayersController extends Controller
       //during first week, this will need to be populated with playerpointhistory and playerpopularityhistory
       return view('player')->with(['player' => $player]);
     }
+
+    public function searchPlayer(Request $request)
+    {
+      //gets the user input
+      $input = $request->input('player-search');
+      
+      $player_list = Player::where('web_name', 'like', '%' . $input . '%')
+                              ->orWhere('first_name', 'like', '%' . $input . '%')
+                              ->orWhere('second_name', 'like', '%' . $input . '%')
+                              ->get();
+      
+      if ( count($player_list) > 1 ) {
+
+        return view('playerlist')->with(['player_list' => $player_list]);
+
+      } else {
+
+        return view('player')->with(['player' => $player_list]); //this can still be a singular player
+      }
+    }
 }
