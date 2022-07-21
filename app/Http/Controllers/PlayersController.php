@@ -137,6 +137,7 @@ class PlayersController extends Controller
       //gets the user input
       $input = $request->input('player-search');
       
+      //%s are for building the query, essentially to say "contains $input", e.g. son, smith
       $player_list = Player::where('web_name', 'like', '%' . $input . '%')
                               ->orWhere('first_name', 'like', '%' . $input . '%')
                               ->orWhere('second_name', 'like', '%' . $input . '%')
@@ -147,8 +148,12 @@ class PlayersController extends Controller
         return view('playerlist')->with(['player_list' => $player_list]);
 
       } else {
+        //this case is essentially getSinglePlayer(), just the slug comes from somewhere else -- could possibly be refactored in the future
+        $slug = $player_list[0]->slug;
 
-        return view('player')->with(['player' => $player_list]); //this can still be a singular player
+        $player = Player::where('slug', $slug)->first();
+
+        return view('player')->with(['player' => $player]); 
       }
     }
 }
