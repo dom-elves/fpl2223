@@ -13,7 +13,7 @@ class Player extends Model
 
     public function team()
     {   
-        return $this->hasOne(Team::class, 'id', 'team_id');
+        return $this->hasOne(Team::class, 'id', 'team_id'); //model, local key, foreign key (keys are relative to <-that model)
     }
 
     

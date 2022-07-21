@@ -128,6 +128,7 @@ class PlayersController extends Controller
     {
       $player = Player::where('slug', $slug)->first(); //using first() prevents it from being a collection, $slug has player id in so it should be okay
       
+      //during first week, this will need to be populated with playerpointhistory and playerpopularityhistory
       return view('player')->with(['player' => $player]);
     }
 }
