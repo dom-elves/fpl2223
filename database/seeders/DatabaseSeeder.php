@@ -77,15 +77,8 @@ class DatabaseSeeder extends Seeder
         Team::create([
             'team_name' => 'Fulham',
             'team_short_name' => 'FUL',
-            'hex_primary' => 'black',
-            'hex_secondary' => 'white'
-        ]);
-
-        Team::create([
-            'team_name' => 'Leeds',
-            'team_short_name' => 'LEE',
-            'hex_primary' => '#FFCD00',
-            'hex_secondary' => 'white'
+            'hex_primary' => 'white',
+            'hex_secondary' => 'black'
         ]);
 
         Team::create([
@@ -93,6 +86,13 @@ class DatabaseSeeder extends Seeder
             'team_short_name' => 'LEI',
             'hex_primary' => '#003090',
             'hex_secondary' => '#FDBE11'
+        ]);
+
+        Team::create([
+            'team_name' => 'Leeds',
+            'team_short_name' => 'LEE',
+            'hex_primary' => 'white',
+            'hex_secondary' => '#FFCD00'
         ]);
 
         Team::create([
