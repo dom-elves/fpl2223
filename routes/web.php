@@ -27,3 +27,4 @@ Route::get('/', [PlayersController::class, 'update']);
 
 Route::get('/home', [PlayersController::class, 'fetch']);
 
+Route::get('/player/{slug}', [PlayersCOntroller::class, 'getSinglePlayer']);

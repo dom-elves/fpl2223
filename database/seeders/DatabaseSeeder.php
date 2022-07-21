@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Teams;
+use App\Models\Team;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
@@ -16,85 +16,85 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('teams')->truncate();
+        // DB::table('Team')->truncate();
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Arsenal'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Aston Villa'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Bournemouth'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Brentford'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Brighton'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Chelsea'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Crystal Palace'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Everton'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Fulham'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Leeds'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Leicester City'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Liverpool'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Manchester City'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Manchester United'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Newcastle'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Nottingham Forest'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Southampton'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Tottenham'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'West Ham'
         ]);
 
-        Teams::create([
+        Team::create([
             'team_name' => 'Wolves'
         ]);
     }

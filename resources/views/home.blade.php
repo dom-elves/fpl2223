@@ -7,7 +7,7 @@
 
         @foreach ($team->players as $player)
 
-            <p>{{ $player->first_name }} {{ $player->second_name }}</p>
+            <a href="player/{{ $player->slug }}"><p>{{ $player->first_name }} {{ $player->second_name }}</p></a>
 
         @endforeach
 

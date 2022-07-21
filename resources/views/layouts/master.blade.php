@@ -7,7 +7,7 @@
 <body>
 
     <header>
-        <h1>fpl 202223</h1>
+        <h1>fpl 20223</h1>
     </header>
 
     @yield('content')
