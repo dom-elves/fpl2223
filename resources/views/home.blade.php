@@ -7,7 +7,7 @@
 
         @foreach ($team->players as $player)
                 
-            <a href="player/{{ $player->slug }}"><p class="bg-[{{$team->hex_primary}}] text-[{{$team->hex_secondary}}]">{{ $player->first_name }} {{ $player->second_name }}</p></a>
+            <a href="player/{{ $player->slug }}"><p class="{{ $player->team->team_short_name }}">{{ $player->first_name }} {{ $player->second_name }}</p></a>
 
         @endforeach
 

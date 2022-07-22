@@ -21,8 +21,6 @@ return new class extends Migration
             // $table->foreign('team_id')->references('team_id')->on('players');
             $table->string('team_name');
             $table->string('team_short_name');
-            $table->string('hex_primary');
-            $table->string('hex_secondary');
             $table->timestamps();
         });
     }

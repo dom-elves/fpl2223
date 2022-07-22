@@ -4,7 +4,7 @@
 
 
 
-<p class="bg-[{{ $player->team->hex_primary }}] text-[{{ $player->team->hex_secondary}}]"> {{$player}}</p> 
+<p class="{{ $player->team->team_short_name }}"> {{$player}}</p> 
 
 
 @endsection
