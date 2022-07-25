@@ -76,7 +76,11 @@ class PlayersController extends Controller
 
             //costs
             $new_player->start_cost = $player->now_cost - $player->cost_change_start;
+            $new_player->start_cost = $new_player->start_cost / 10;
+
             $new_player->current_cost = $player->now_cost;
+            $new_player->current_cost = $new_player->current_cost / 10;
+
             $new_player->cost_change_week = $player->cost_change_event;
 
             //goals

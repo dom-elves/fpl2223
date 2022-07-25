@@ -26,9 +26,9 @@ return new class extends Migration
             $table->integer('total_points_season')->nullable();
             $table->integer('total_points_week')->nullable();
             $table->integer('points_per_game')->nullable();
-            $table->integer('current_cost')->nullable();
-            $table->integer('start_cost')->nullable();
-            $table->integer('cost_change_week')->nullable();
+            $table->decimal('current_cost', 3, 1)->nullable();
+            $table->decimal('start_cost', 3, 1)->nullable();
+            $table->decimal('cost_change_week')->nullable();
             $table->integer('goals_scored')->nullable();
             $table->integer('goals_assisted')->nullable();
             $table->integer('goals_conceded')->nullable();
