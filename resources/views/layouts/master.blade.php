@@ -18,7 +18,7 @@
             <label for="player-search"></label>
             <input placeholder="Search for a player" name="player-search">
 
-        <form>
+        </form>
 
     </header>
 
