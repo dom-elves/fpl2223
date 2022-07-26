@@ -30,3 +30,7 @@ Route::get('/home', [PlayersController::class, 'fetch']);
 Route::get('/player/{slug}', [PlayersController::class, 'getSinglePlayer']);
 
 Route::get('/player-search', [PlayersController::class, 'searchPlayer']);
+
+Route::get('/playground', function() {
+    return view('playground');
+});

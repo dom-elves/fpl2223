@@ -5,7 +5,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
-
+    @livewireStyles
 </head>
 
 <body>
@@ -24,6 +24,7 @@
 
     @yield('content')
 
+@livewireScripts
 </body>
 
 

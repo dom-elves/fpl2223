@@ -16,8 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('Team')->truncate();
-
         Team::create([
             'team_name' => 'Arsenal',
             'team_short_name' => 'ARS',
