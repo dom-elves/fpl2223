@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    
+    <title>FPL 2022/2023</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>

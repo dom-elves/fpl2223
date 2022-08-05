@@ -12,9 +12,9 @@ class Counter extends Component
     {
         $this->count++;
     }
-    
+
     public function render()
     {
-        return view('livewire.counter');
+        return view('livewire.counter', [ 'name' => 'Dom Elves']);
     }
 }

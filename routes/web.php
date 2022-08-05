@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\PlayersController;
+use App\Http\Controllers\GameweekController;
 use App\Models\Teams;
 
 
@@ -30,6 +31,11 @@ Route::get('/home', [PlayersController::class, 'fetch']);
 Route::get('/player/{slug}', [PlayersController::class, 'getSinglePlayer']);
 
 Route::get('/player-search', [PlayersController::class, 'searchPlayer']);
+
+//gameweeks
+Route::get('/update-gameweeks', [GameweekController::class, 'update']);
+
+Route::get('/gameweeks', [GameweekController::class, 'fetch']);
 
 Route::get('/playground', function() {
     return view('playground');
