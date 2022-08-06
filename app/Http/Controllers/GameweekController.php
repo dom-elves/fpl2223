@@ -48,21 +48,34 @@ class GameweekController extends Controller
 
                 foreach ($players as $player) {
 
-                    $point_history = new PlayersPointHistory;
+                    //add existing player check
+                    $existing_player = Player::where('player_id', $player->id)->get();
+
+                    if ($existing_player) {
+                        
+                        PlayersPointHistory::where('player_id', $player->id)
+                                            ->update([$current_gameweek => $player->event_points]);
+
+                        PlayerPopularity::where('player_id', $player->id)
+                                            ->update([$current_gameweek => $player->selected_by_percent]);
+
+                    } else {
+
+                        $point_history = new PlayersPointHistory;
                     
-                    $point_history->player_id = $player->id;
-                    $point_history->$current_gameweek = $player->event_points;
+                        $point_history->player_id = $player->id;
+                        $point_history->$current_gameweek = $player->event_points;
 
-                    $point_history->save();
+                        $point_history->save();
 
-                    $player_popularity = new PlayerPopularity;
+                        $player_popularity = new PlayerPopularity;
 
-                    $player_popularity->player_id = $player->id;
-                    $player_popularity->$current_gameweek = $player->selected_by_percent;
+                        $player_popularity->player_id = $player->id;
+                        $player_popularity->$current_gameweek = $player->selected_by_percent;
 
-                    $player_popularity->save();
+                        $player_popularity->save();
 
-
+                    }
                 }
 
             }
