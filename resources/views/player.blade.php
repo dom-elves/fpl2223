@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+{{ $player }}
 
 <p class="m-4">{{ $player->first_name }} {{ $player->second_name }}</p>
 

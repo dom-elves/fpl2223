@@ -10,7 +10,7 @@ class Gameweek extends Model
     use HasFactory;
 
     public function players()
-    {   dd('test');
+    {   
         return $this->hasMany(Player::class, 'id', 'player_id'); 
     }
 }

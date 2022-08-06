@@ -26,10 +26,6 @@ class PlayersController extends Controller
             
             $new_player = new Player;
 
-            //come back and do these two when the gameweeks have actually started so the logic can work properly
-            $player_weekly_pop = new PlayerPopularity;
-            $player_weeky_points = new PlayersPointHistory;
-
             // dd($player);
             //general info
             $new_player->player_id = $player->id;
@@ -123,9 +119,11 @@ class PlayersController extends Controller
 
     public function getSinglePlayer($slug)
     {
-      $player = Player::where('slug', $slug)->first(); //using first() prevents it from being a collection, $slug has player id in so it should be okay
+      $player = Player::where('slug', $slug)->with('popularity') //model
+                                            ->with('pointHistory') //model
+                                            ->get()
+                                            ->first(); //using first() prevents it from being a collection, $slug has player id in so it should be okay
       
-      //during first week, this will need to be populated with playerpointhistory and playerpopularityhistory
       return view('player')->with(['player' => $player]);
     }
 
@@ -148,9 +146,12 @@ class PlayersController extends Controller
         //this case is essentially getSinglePlayer(), just the slug comes from somewhere else -- could possibly be refactored in the future
         $slug = $player_list[0]->slug;
 
-        $player = Player::where('slug', $slug)->first();
+        $player = Player::where('slug', $slug)->with('popularity') //model
+                                              ->with('pointHistory') //model
+                                              ->get()
+                                              ->first(); //using first() prevents it from being a collection, $slug has player id in so it should be okay
 
-        return view('player')->with(['player' => $player]); 
+        return view('player')->with(['player' => $player]);
       }
     }
 }

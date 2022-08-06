@@ -4,7 +4,7 @@
     <h1>gameweeks</h1>
 
     @foreach ($gameweeks as $gameweek)
-        {{ dd($gameweek->players) }}
+        {{ $gameweek }}
     @endforeach
 
 @endsection
