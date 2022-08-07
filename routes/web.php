@@ -24,7 +24,7 @@ use App\Models\Teams;
 
 // Route::get('/', [APIController::class, 'apiRequest']);
 
-Route::get('/', [PlayersController::class, 'update']);
+Route::get('/', [PlayersController::class, 'update']); //this one
 
 Route::get('/home', [PlayersController::class, 'fetch']);
 
@@ -33,7 +33,7 @@ Route::get('/player/{slug}', [PlayersController::class, 'getSinglePlayer']);
 Route::get('/player-search', [PlayersController::class, 'searchPlayer']);
 
 //gameweeks
-Route::get('/update-gameweeks', [GameweekController::class, 'update']);
+Route::get('/update-gameweeks', [GameweekController::class, 'update']); //this one 
 
 Route::get('/gameweeks', [GameweekController::class, 'fetch']);
 

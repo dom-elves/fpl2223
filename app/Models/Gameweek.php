@@ -11,6 +11,6 @@ class Gameweek extends Model
 
     public function players()
     {   
-        return $this->hasMany(Player::class, 'id', 'player_id'); 
+        return $this->hasMany(Player::class, 'player_id', 'most_selected_player', 'highest_scoring_player'); 
     }
 }
