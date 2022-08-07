@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Team;
 use App\Models\PlayerPopularity;
 use App\Models\PlayersPointHistory;
+use App\Models\Gameweek;
 
 class Player extends Model
 {
@@ -28,5 +29,4 @@ class Player extends Model
         return $this->hasOne(PlayerPopularity::class, 'player_id', 'player_id'); //model, local key, foreign key (keys are relative to <-that model)
     }
 
-    
 }

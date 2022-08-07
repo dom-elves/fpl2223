@@ -87,8 +87,16 @@ class GameweekController extends Controller
 
     public function fetch()
     {
-        $gameweeks = Gameweek::with('players')->get();
-        // dd($gameweeks);
+        $gameweeks = Gameweek::with('mostSelectedPlayer', 
+                                    'highestScoringPlayer', 
+                                    'highestPlayerScore',  
+                                    'mostTransferred', 
+                                    'mostCaptained', 
+                                    'mostViceCaptained')
+                                    ->get()
+                                    ->all();
+                                    
+        
         return view('/gameweeks', ['gameweeks' => $gameweeks]);
     }
 
