@@ -22,12 +22,12 @@ class GameweekController extends Controller
         $gameweeks = $decoded->events;
 
         $players = $decoded->elements;
-
-        DB::table('gameweeks')->truncate();
+        dd($gameweeks);
+        DB::table('gameweeks')->truncate();//deprecate this because it's dangerous
 
         foreach ($gameweeks as $gameweek) {
             
-            if ($gameweek->is_current == true ) { //this will need to be changed in the future to include "finished"
+            if ($gameweek->is_current == true || $gameweek->data_checked == true ) { //this will need to be changed in the future to include "finished" (maybe data checked is better)
 
                 $a_gameweek = new Gameweek;
                 
@@ -43,8 +43,8 @@ class GameweekController extends Controller
                 $a_gameweek->save();
                 
                 //handles point/popularity histories
-                if ($gameweek->is_current !== false ) {
-
+                if ($gameweek->is_current !== false ) { //this might also need to be changed as players are all already in the db
+                                                        //although as long as this is run after the games but while the gameweek is 'active', everything is probably okay
                     $current = $gameweek->id;
                     $current_gameweek = 'gameweek_' . $current;
 
@@ -79,7 +79,6 @@ class GameweekController extends Controller
 
                         }
                     }
-
                 }
             }
         }

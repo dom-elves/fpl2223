@@ -20,7 +20,7 @@ class PlayersController extends Controller
         $players = $decoded->elements;
         
         // $gameweeks = $decoded->events;
-        DB::table('players')->truncate();
+        DB::table('players')->truncate(); //also need to change this to update rather than new after gw1 finishes
 
         foreach ($players as $player) {
             
