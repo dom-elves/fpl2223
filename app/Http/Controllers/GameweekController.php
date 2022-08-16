@@ -22,7 +22,7 @@ class GameweekController extends Controller
         $gameweeks = $decoded->events;
 
         $players = $decoded->elements;
-        dd($gameweeks);
+        
         DB::table('gameweeks')->truncate();//deprecate this because it's dangerous
 
         foreach ($gameweeks as $gameweek) {

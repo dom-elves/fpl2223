@@ -18,5 +18,6 @@
     <p class="m-4">Points per game: {{ $player->points_per_game }}</p>
 </div>
 
+<!-- {{ App\Events\TestEvent::__construct() }} -->
 
 @endsection
