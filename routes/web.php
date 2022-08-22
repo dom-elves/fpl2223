@@ -5,6 +5,8 @@ use App\Http\Controllers\APIController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\GameweekController;
 use App\Models\Teams;
+use App\Models\GuineaPig;
+
 
 
 /*
@@ -39,4 +41,22 @@ Route::get('/gameweeks', [GameweekController::class, 'fetch']);
 
 Route::get('/playground', function() {
     return view('playground');
+});
+
+//below here is experimental stuff
+Route::get('/events', function () {
+
+    // $person = new GuineaPig;
+
+    // $person->name = 'john';
+    // $person->fav_color = 'blue';
+    // $person->other = 'ewetyrtfgju';
+
+    // $person->save();
+
+    $person = GuineaPig::find(1);
+
+
+
+    return view( 'events', ['person' => $person]);
 });

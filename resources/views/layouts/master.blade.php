@@ -3,7 +3,7 @@
 <head>
     <title>FPL 2022/2023</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+   
     <script src="https://cdn.tailwindcss.com"></script>
     @livewireStyles
 </head>
@@ -27,7 +27,7 @@
 @livewireScripts
 </body>
 
-
-
+    <!-- <script src="{{ asset('/js/app.js') }}"></script> -->
+    
 
 </html>
