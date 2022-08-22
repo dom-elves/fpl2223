@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{ $player }}
+
 
 <p class="m-4">{{ $player->first_name }} {{ $player->second_name }}</p>
 
@@ -19,5 +19,24 @@
 </div>
 
 
+<div class="flex flex-row">
+    <div class="m-4">
+        <strong>Popularity History</strong>
+        @foreach ($player->popularity->getAttributes() as $gameweek => $popularity)
+            @if ($popularity != null)
+            <p> {{ $gameweek }} : {{ $popularity }}%</p>
+            @endif
+        @endforeach
+    </div>
+
+    <div class="m-4">
+        <strong>Points History</strong>
+        @foreach ($player->pointHistory->getAttributes() as $gameweek => $history)
+            @if ($history != null)
+            <p> {{ $gameweek }} : {{ $history }}</p>
+            @endif
+        @endforeach
+    </div>
+</div>
 
 @endsection
