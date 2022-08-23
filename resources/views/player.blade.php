@@ -18,23 +18,45 @@
     <p class="m-4">Points per game: {{ $player->points_per_game }}</p>
 </div>
 
+{{ !! $check = 'gameweek' }}
 
 <div class="flex flex-row">
     <div class="m-4">
         <strong>Popularity History</strong>
         @foreach ($player->popularity->getAttributes() as $gameweek => $popularity)
-            @if ($popularity != null)
-            <p> {{ $gameweek }} : {{ $popularity }}%</p>
+
+            @if ($gameweek == 'updated_at')
+                <p> {{ $gameweek }} : {{ $popularity }}</p>
             @endif
+
+            @if ( Str::Contains($gameweek, $check) == false )
+                @continue
+            @endif
+            
+            @if ($popularity != null)
+                <p> {{ $gameweek }} : {{ $popularity }}%</p>
+            @endif
+            
         @endforeach
+       
     </div>
 
     <div class="m-4">
         <strong>Points History</strong>
         @foreach ($player->pointHistory->getAttributes() as $gameweek => $history)
-            @if ($history != null)
-            <p> {{ $gameweek }} : {{ $history }}</p>
+
+            @if ($gameweek == 'updated_at')
+                <p> {{ $gameweek }} : {{ $popularity }}</p>
             @endif
+
+            @if ( Str::Contains($gameweek, $check) == false )
+                @continue
+            @endif
+
+            @if ($history != null)
+                <p> {{ $gameweek }} : {{ $history }}</p>
+            @endif
+
         @endforeach
     </div>
 </div>
